@@ -9,11 +9,10 @@ body {
 
 #gameDiv {
 	width: 500px;
-	height: 600px;
+	height: 605px;
 	background-color: white;
 	margin: 50px auto;
 	border: 2px solid black;
-
 }
 
 #statusBar {
@@ -21,6 +20,14 @@ body {
 	width: 500px;
 	background-color: green;
 	border: 1px solid black;
+}
+
+#can1,
+#can2,
+#can3,
+#can4,
+#can5 {
+	background-color: #EEE;
 }
 
 .gameCanvas {
