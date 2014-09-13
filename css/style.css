@@ -1,0 +1,30 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	background-color: white;
+}
+
+#gameDiv {
+	width: 500px;
+	height: 600px;
+	background-color: white;
+	margin: 50px auto;
+	border: 2px solid black;
+
+}
+
+#statusBar {
+	height: 50px;
+	width: 500px;
+	background-color: green;
+	border: 1px solid black;
+}
+
+.gameCanvas {
+	width: 96.5px;
+	height: 545px;
+	background-color: #EEE;
+}
