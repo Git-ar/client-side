@@ -12,6 +12,12 @@ var ball3Speed = 5;
 var ball4Speed = 7;
 var ball5Speed = 10;
 
+var sendBall1;
+var sendBall2;
+var sendBall3;
+var sendBall4;
+var sendBall5;
+
 // Initialize the game
 window.onload = function(){
 
@@ -89,19 +95,19 @@ function init() {
         var keycode = (event.keyCode ? event.keyCode : event.which);
         switch(keycode) {
             case 49: 
-                tick1();
+                sendBall1 =  setInterval(tick1, 10);
                 break;
             case 50:
-                tick2();
+                sendBall2 =  setInterval(tick2, 10);
                 break;
             case 51:
-                tick3();
+                sendBall3 =  setInterval(tick3, 10);
                 break;
             case 52:
-                tick4();
+                sendBall4 =  setInterval(tick4, 10);
                 break;
             case 53:
-                tick5();
+                sendBall5 =  setInterval(tick5, 10);
                 break;
         }
     });
@@ -112,15 +118,16 @@ function init() {
 function tick1(event) {
     if(timer > 0){
         circle1.y = circle1.y + 5;
-        if (circle1.y > stage1.canvas.height) { circle1.y = 0; }
+        if (circle1.y > stage1.canvas.height) { clearInterval(sendBall1); circle1.y = -40; }
         stage1.update(event); // important!!
     }
+    setTimeout(100, tick1);
 }
 
 function tick2(event) {
         if(timer > 0){
         circle2.y = circle2.y + 5;
-        if (circle2.y > stage1.canvas.height) { circle2.y = 0; }
+        if (circle2.y > stage1.canvas.height) { clearInterval(sendBall2); circle2.y = -40; }
         stage2.update(event); // important!!
     }
 }
@@ -128,7 +135,7 @@ function tick2(event) {
 function tick3(event) {
     if(timer > 0){
         circle3.y = circle3.y + 5;
-        if (circle3.y > stage3.canvas.height) { circle3.y = 0; }
+        if (circle3.y > stage3.canvas.height) { clearInterval(sendBall3); circle3.y = -40; }
         stage3.update(event); // important!!
     }
 }
@@ -136,7 +143,7 @@ function tick3(event) {
 function tick4(event) {
     if(timer > 0){
         circle4.y = circle4.y + 5;
-        if (circle4.y > stage4.canvas.height) { circle4.y = 0; }
+        if (circle4.y > stage4.canvas.height) { clearInterval(sendBall4); circle4.y = -40;}
         stage4.update(event); // important!!
     }
 }
@@ -144,7 +151,7 @@ function tick4(event) {
 function tick5(event) {
     if(timer > 0){
         circle5.y = circle5.y + 5;
-        if (circle5.y > stage5.canvas.height) { circle5.y = 0; }
+        if (circle5.y > stage5.canvas.height) { clearInterval(sendBall5); circle5.y = -40; }
         stage5.update(event); // important!!
     }
 }
