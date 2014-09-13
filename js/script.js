@@ -6,6 +6,12 @@ var stage1, circle1,
 
 var timer = 300;
 
+var ball1Speed = 3;
+var ball2Speed = 1;
+var ball3Speed = 5;
+var ball4Speed = 7;
+var ball5Speed = 10;
+
 // Initialize the game
 window.onload = function(){
 
@@ -28,8 +34,8 @@ function init() {
     circle1.x = 96.5 / 2;
     stage1.addChild(circle1);
 
-    createjs.Ticker.on("tick", tick1);
-    createjs.Ticker.setFPS(30);
+    /*createjs.Ticker.on("tick", tick1);
+    createjs.Ticker.setFPS(30);*/
 
     // Stage 2 Initialization 
     stage2 = new createjs.Stage("can2");
@@ -40,8 +46,8 @@ function init() {
     circle2.x = 96.5 / 2;
     stage2.addChild(circle2);
 
-    createjs.Ticker.on("tick", tick2);
-    createjs.Ticker.setFPS(30);
+    /*createjs.Ticker.on("tick", tick2);
+    createjs.Ticker.setFPS(30);*/
 
     // Stage 3 Initialization 
     stage3 = new createjs.Stage("can3");
@@ -52,8 +58,8 @@ function init() {
     circle3.x = 96.5 / 2;
     stage3.addChild(circle3);
 
-    createjs.Ticker.on("tick", tick3);
-    createjs.Ticker.setFPS(30);
+    /*createjs.Ticker.on("tick", tick3);
+    createjs.Ticker.setFPS(30);*/
 
     // Stage 4 Initialization 
     stage4 = new createjs.Stage("can4");
@@ -64,8 +70,8 @@ function init() {
     circle4.x = 96.5 / 2;
     stage4.addChild(circle4);
 
-    createjs.Ticker.on("tick", tick4);
-    createjs.Ticker.setFPS(30);
+    /*createjs.Ticker.on("tick", tick4);
+    createjs.Ticker.setFPS(30);*/
     
     // Stage 5 Initialization 
     stage5 = new createjs.Stage("can5");
@@ -76,10 +82,32 @@ function init() {
     circle5.x = 96.5 / 2;
     stage5.addChild(circle5);
 
-    createjs.Ticker.on("tick", tick5);
-    createjs.Ticker.setFPS(30);
+    /*createjs.Ticker.on("tick", tick5);
+    createjs.Ticker.setFPS(30);*/
+
+    $(document).keypress(function(event){
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        switch(keycode) {
+            case 49: 
+                tick1();
+                break;
+            case 50:
+                tick2();
+                break;
+            case 51:
+                tick3();
+                break;
+            case 52:
+                tick4();
+                break;
+            case 53:
+                tick5();
+                break;
+        }
+    });
   
 }
+
 
 function tick1(event) {
     if(timer > 0){
@@ -125,6 +153,7 @@ function tick5(event) {
 
 // Timer canvas changing 
 var xPos = 300;
+var timerSpeed = 500;
 var ctx;
 
 function initTimer(){
@@ -134,7 +163,7 @@ function initTimer(){
         ctx = timeCanvas.getContext("2d");
     }
 
-    setInterval(changeTimer, 10);
+    setInterval(changeTimer, timerSpeed);
     
 }
 
