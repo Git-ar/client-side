@@ -12,6 +12,13 @@ var ball3Speed = 5;
 var ball4Speed = 7;
 var ball5Speed = 10;
 
+
+var sendEmBalls1=true;
+var sendEmBalls2=true;
+var sendEmBalls3=true;
+var sendEmBalls4=true;
+var sendEmBalls5=true;
+
 var sendBall1;
 var sendBall2;
 var sendBall3;
@@ -95,19 +102,24 @@ function init() {
         var keycode = (event.keyCode ? event.keyCode : event.which);
         switch(keycode) {
             case 49: 
-                sendBall1 =  setInterval(tick1, 10);
+                if(sendEmBalls1)
+                    sendBall1 =  setInterval(tick1, 10);
                 break;
             case 50:
-                sendBall2 =  setInterval(tick2, 10);
+                if(sendEmBalls2)
+                    sendBall2 =  setInterval(tick2, 10);
                 break;
             case 51:
-                sendBall3 =  setInterval(tick3, 10);
+                if(sendEmBalls3)
+                    sendBall3 =  setInterval(tick3, 10);
                 break;
             case 52:
-                sendBall4 =  setInterval(tick4, 10);
+                if(sendEmBalls4)
+                    sendBall4 =  setInterval(tick4, 10);
                 break;
             case 53:
-                sendBall5 =  setInterval(tick5, 10);
+                if(sendEmBalls5)
+                    sendBall5 =  setInterval(tick5, 10);
                 break;
         }
     });
@@ -116,42 +128,47 @@ function init() {
 
 
 function tick1(event) {
+    sendEmBalls1 = false
     if(timer > 0){
         circle1.y = circle1.y + 5;
-        if (circle1.y > stage1.canvas.height) { clearInterval(sendBall1); circle1.y = -40; }
+        if (circle1.y > stage1.canvas.height) { clearInterval(sendBall1); circle1.y = -40; sendEmBalls1 = true; }
         stage1.update(event); // important!!
     }
     setTimeout(100, tick1);
 }
 
 function tick2(event) {
+    sendEmBalls2 = false
         if(timer > 0){
         circle2.y = circle2.y + 5;
-        if (circle2.y > stage1.canvas.height) { clearInterval(sendBall2); circle2.y = -40; }
+        if (circle2.y > stage1.canvas.height) { clearInterval(sendBall2); circle2.y = -40;  sendEmBalls2 = true; }
         stage2.update(event); // important!!
     }
 }
 
 function tick3(event) {
+    sendEmBalls3 = false
     if(timer > 0){
         circle3.y = circle3.y + 5;
-        if (circle3.y > stage3.canvas.height) { clearInterval(sendBall3); circle3.y = -40; }
+        if (circle3.y > stage3.canvas.height) { clearInterval(sendBall3); circle3.y = -40;  sendEmBalls3 = true; }
         stage3.update(event); // important!!
     }
 }
 
 function tick4(event) {
+    sendEmBalls4 = false
     if(timer > 0){
         circle4.y = circle4.y + 5;
-        if (circle4.y > stage4.canvas.height) { clearInterval(sendBall4); circle4.y = -40;}
+        if (circle4.y > stage4.canvas.height) { clearInterval(sendBall4); circle4.y = -40; sendEmBalls4 = true; }
         stage4.update(event); // important!!
     }
 }
 
 function tick5(event) {
+    sendEmBalls5 = false
     if(timer > 0){
         circle5.y = circle5.y + 5;
-        if (circle5.y > stage5.canvas.height) { clearInterval(sendBall5); circle5.y = -40; }
+        if (circle5.y > stage5.canvas.height) { clearInterval(sendBall5); circle5.y = -40;  sendEmBalls5 = true; }
         stage5.update(event); // important!!
     }
 }
