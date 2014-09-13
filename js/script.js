@@ -10,7 +10,7 @@ var ball1Speed = 3;
 var ball2Speed = 1;
 var ball3Speed = 5;
 var ball4Speed = 7;
-var ball5Speed = 10;
+var ball5Speed = 20;
 
 
 var sendEmBalls1=true;
@@ -24,6 +24,17 @@ var sendBall2;
 var sendBall3;
 var sendBall4;
 var sendBall5;
+
+var songArray = [
+    [0,0],
+    [0,5],
+    [1,3],
+    [2,5],
+    [3,7],
+    [4,7]
+];
+
+//songArray[1][1]
 
 // Initialize the game
 window.onload = function(){
@@ -203,3 +214,5 @@ function changeTimer(){
         console.log("Game Ended");
     }
 }
+
+/* _-_-_-_-_-_- FIREWORKS _-_-_-_-_-_-_-_- */
