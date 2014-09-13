@@ -4,11 +4,13 @@ var stage1, circle1,
     stage4, circle4,
     stage5, circle5;
 
+var timer = 300;
+
 // Initialize the game
 window.onload = function(){
 
     init();
-
+    initTimer();
 
 
 }
@@ -80,31 +82,71 @@ function init() {
 }
 
 function tick1(event) {
-    circle1.y = circle1.y + 5;
-    if (circle1.y > stage1.canvas.height) { circle1.y = 0; }
-    stage1.update(event); // important!!
+    if(timer > 0){
+        circle1.y = circle1.y + 5;
+        if (circle1.y > stage1.canvas.height) { circle1.y = 0; }
+        stage1.update(event); // important!!
+    }
 }
 
 function tick2(event) {
-    circle2.y = circle2.y + 5;
-    if (circle2.y > stage1.canvas.height) { circle2.y = 0; }
-    stage2.update(event); // important!!
+        if(timer > 0){
+        circle2.y = circle2.y + 5;
+        if (circle2.y > stage1.canvas.height) { circle2.y = 0; }
+        stage2.update(event); // important!!
+    }
 }
 
 function tick3(event) {
-    circle3.y = circle3.y + 5;
-    if (circle3.y > stage3.canvas.height) { circle3.y = 0; }
-    stage3.update(event); // important!!
+    if(timer > 0){
+        circle3.y = circle3.y + 5;
+        if (circle3.y > stage3.canvas.height) { circle3.y = 0; }
+        stage3.update(event); // important!!
+    }
 }
 
 function tick4(event) {
-    circle4.y = circle4.y + 5;
-    if (circle4.y > stage4.canvas.height) { circle4.y = 0; }
-    stage4.update(event); // important!!
+    if(timer > 0){
+        circle4.y = circle4.y + 5;
+        if (circle4.y > stage4.canvas.height) { circle4.y = 0; }
+        stage4.update(event); // important!!
+    }
 }
 
 function tick5(event) {
-    circle5.y = circle5.y + 5;
-    if (circle5.y > stage5.canvas.height) { circle5.y = 0; }
-    stage5.update(event); // important!!
+    if(timer > 0){
+        circle5.y = circle5.y + 5;
+        if (circle5.y > stage5.canvas.height) { circle5.y = 0; }
+        stage5.update(event); // important!!
+    }
+}
+
+
+
+// Timer canvas changing 
+var xPos = 300;
+var ctx;
+
+function initTimer(){
+    timeCanvas = document.getElementById("statusBar");
+
+    if(timeCanvas.getContext){
+        ctx = timeCanvas.getContext("2d");
+    }
+
+    setInterval(changeTimer, 10);
+    
+}
+
+function changeTimer(){
+    ctx = document.getElementById("statusBar").getContext("2d");
+    xPos--;
+    timer = xPos;
+    ctx.fillStyle = "#FFF";
+    ctx.fillRect(xPos,0,2,200);
+
+    if(xPos <= 0){
+        clearInterval(changeTimer, 10);
+        console.log("Game Ended");
+    }
 }
