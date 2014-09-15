@@ -1,5 +1,6 @@
 client-side
 ===========
+Made @ Pennapps 2014
 
 Actual game
 
